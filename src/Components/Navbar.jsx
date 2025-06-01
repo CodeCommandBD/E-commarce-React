@@ -31,7 +31,8 @@ const Navbar = ({location}) => {
                             <IoMdArrowDropdown className='text-purple-800' />
 
                             {
-                                openTost ? <div className=''>
+                                openTost ? <div className='w-[250px] h-[250px] bg-white z-40 shadow-2xl absolute top-0 border-2 p-5 border-gray-100 rounded-md'>
+                                    <h1 className='font-semibold'>Change Locatoin</h1>
 
                                 </div> : null
                             }
