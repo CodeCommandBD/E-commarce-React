@@ -36,7 +36,7 @@ const Navbar = ({location}) => {
 
                             {
                                 openTost ? <div className='w-[250px] h-fit bg-white z-40 shadow-2xl absolute top-8 border-2 p-5 border-gray-100 rounded-md'>
-                                    <h1 className='font-semibold mb-4 text-lg flex justify-between items-center'>Change Locatoin <span><CgClose></CgClose></span></h1>
+                                    <h1 className='font-semibold mb-4 text-lg flex justify-between items-center'>Change Locatoin <span><CgClose onClick={toggle}></CgClose></span></h1>
 
                                 </div> : null
                             }
