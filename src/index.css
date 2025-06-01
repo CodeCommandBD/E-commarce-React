@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@layer {
+    .container{
+        max-width: 1200px;
+        margin:  auto;
+        padding: 0 20px;
+    }
+}
+
+.cl-avatarBox{
+    width: 3rem;
+    height: 3rem;
+}
