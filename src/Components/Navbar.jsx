@@ -4,10 +4,14 @@ import { CiLocationOn } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { BsCart3 } from "react-icons/bs";
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+import { CgClose } from 'react-icons/cg';
 
 
 const Navbar = ({location}) => {
     const [openTost, setOpenTost] = useState(false)
+    const toggle = () =>{
+        setOpenTost(!openTost)
+    }
     return (
         <div>
             <div className='bg-white py-3 shadow-2xl'>
@@ -23,16 +27,16 @@ const Navbar = ({location}) => {
 
                         {/* location section */}
                         
-                        <div className='flex items-center justify-center '>
+                        <div className='flex items-center justify-center relative'>
                             <CiLocationOn className='text-purple-800 font-bold text-xl' />
 
                             <span className='font-semibold'>{location ? <div className='text-sm'>{location.city}, {location.country}</div> : <h3 className='text-purple-800'>Add Location</h3>}
                             </span>
-                            <IoMdArrowDropdown className='text-purple-800' />
+                            <IoMdArrowDropdown className='text-purple-800' onClick={toggle} />
 
                             {
-                                openTost ? <div className='w-[250px] h-[250px] bg-white z-40 shadow-2xl absolute top-0 border-2 p-5 border-gray-100 rounded-md'>
-                                    <h1 className='font-semibold'>Change Locatoin</h1>
+                                openTost ? <div className='w-[250px] h-fit bg-white z-40 shadow-2xl absolute top-8 border-2 p-5 border-gray-100 rounded-md'>
+                                    <h1 className='font-semibold mb-4 text-lg flex justify-between items-center'>Change Locatoin <span><CgClose></CgClose></span></h1>
 
                                 </div> : null
                             }
