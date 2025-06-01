@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { CiLocationOn } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -7,7 +7,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-reac
 
 
 const Navbar = ({location}) => {
-    
+    const [openTost, setOpenTost] = useState(false)
     return (
         <div>
             <div className='bg-white py-3 shadow-2xl'>
@@ -29,6 +29,12 @@ const Navbar = ({location}) => {
                             <span className='font-semibold'>{location ? <div className='text-sm'>{location.city}, {location.country}</div> : <h3 className='text-purple-800'>Add Location</h3>}
                             </span>
                             <IoMdArrowDropdown className='text-purple-800' />
+
+                            {
+                                openTost ? <div className=''>
+
+                                </div> : null
+                            }
                         </div>
                     </div>
 
