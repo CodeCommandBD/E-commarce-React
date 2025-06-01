@@ -27,16 +27,17 @@ const Navbar = ({location}) => {
 
                         {/* location section */}
                         
-                        <div className='flex items-center justify-center relative'>
+                        <div className='flex items-center justify-center relative '>
                             <CiLocationOn className='text-purple-800 font-bold text-xl' />
 
                             <span className='font-semibold'>{location ? <div className='text-sm'>{location.city}, {location.country}</div> : <h3 className='text-purple-800'>Add Location</h3>}
                             </span>
-                            <IoMdArrowDropdown className='text-purple-800' onClick={toggle} />
+                            <IoMdArrowDropdown className='text-purple-800 cursor-pointer' onClick={toggle} />
 
                             {
                                 openTost ? <div className='w-[250px] h-fit bg-white z-40 shadow-2xl absolute top-8 border-2 p-5 border-gray-100 rounded-md'>
-                                    <h1 className='font-semibold mb-4 text-lg flex justify-between items-center'>Change Locatoin <span><CgClose onClick={toggle}></CgClose></span></h1>
+                                    <h1 className='font-semibold mb-4 text-lg flex justify-between items-center'>Change Locatoin <span><CgClose className='cursor-pointer' onClick={toggle}></CgClose></span></h1>
+                                    <button>Detect my location</button>
 
                                 </div> : null
                             }
