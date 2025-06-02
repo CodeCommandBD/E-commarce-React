@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { CiLocationOn } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -7,8 +7,8 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-reac
 import { CgClose } from 'react-icons/cg';
 
 
-const Navbar = ({location}) => {
-    const [openTost, setOpenTost] = useState(false)
+const Navbar = ({location, getLocation, openTost, setOpenTost}) => {
+    
     const toggle = () =>{
         setOpenTost(!openTost)
     }
@@ -35,9 +35,9 @@ const Navbar = ({location}) => {
                             <IoMdArrowDropdown className='text-purple-800 cursor-pointer' onClick={toggle} />
 
                             {
-                                openTost ? <div className='w-[250px] h-fit bg-white z-40 shadow-2xl absolute top-8 border-2 p-5 border-gray-100 rounded-md'>
+                                openTost ? <div className='w-[250px] h-fit bg-white z-40 shadow-2xl absolute top-10 border-2 p-5 border-gray-100 rounded-md'>
                                     <h1 className='font-semibold mb-4 text-lg flex justify-between items-center'>Change Locatoin <span><CgClose className='cursor-pointer' onClick={toggle}></CgClose></span></h1>
-                                    <button>Detect my location</button>
+                                    <button className='bg-red-700 text-white px-3 py-1 rounded-lg cursor-pointer' onClick={getLocation}>Detect my location</button>
 
                                 </div> : null
                             }
