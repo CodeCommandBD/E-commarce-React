@@ -22,7 +22,7 @@ const App = () => {
         const exactLocation = location.data.address
         setLocation(exactLocation)
         setOpenTost(false)
-        console.log(openTost);
+        // console.log(openTost);
         
       } catch (error) {
         console.log(error);
