@@ -17,6 +17,8 @@ export const DataProvider = ({children}) => {
             console.log(response);
             const productData = response.data.products
             setData(productData)
+            
+            
         } catch (error) {
             console.log(error);
             
