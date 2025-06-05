@@ -30,7 +30,11 @@ const Navbar = ({location, getLocation, openTost, setOpenTost}) => {
                         <div className='flex items-center justify-center relative '>
                             <CiLocationOn className='text-purple-800 font-bold text-xl' />
 
-                            <span className='font-semibold'>{location ? <div className='text-sm'>{location.city}, {location.country}</div> : <h3 className='text-purple-800'>Add Location</h3>}
+                            <span className='font-semibold'>{location ? 
+                                <div className='text-sm'>
+                                    {location.city || location.town || location.village || location.district}, {location.country}
+                                </div> 
+                                : <h3 className='text-purple-800'>Add Location</h3>}
                             </span>
                             <IoMdArrowDropdown className='text-purple-800 cursor-pointer' onClick={toggle} />
 

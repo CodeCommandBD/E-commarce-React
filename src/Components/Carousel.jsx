@@ -1,14 +1,15 @@
-import React, { useContext, useEffect } from 'react'
-import { dataContext } from '../Contexts/DataContext'
+import React, { useEffect } from 'react'
+import { dataContext, useData } from '../Contexts/DataContext'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import Category from './Category'
 
 const Carousel = () => {
-    const { data, fetchAllProducts } = useContext(dataContext)
+    const { data, fetchAllProducts } = useData(dataContext)
 
     useEffect(() => {
         fetchAllProducts()
@@ -31,7 +32,7 @@ const Carousel = () => {
                 }}
                 className="mySwiper"
             >
-                {data?.slice(0, 7)?.map((item, index) => (
+                {data?.slice(0, 10)?.map((item, index) => (
                     <SwiperSlide key={index}>
                         <div className='bg-gradient-to-r from-purple-800 via-purple-700 to-purple-400'>
                             <div className='flex gap-10 justify-between h-[75vh] w-full items-center px-4 container'>
@@ -51,49 +52,33 @@ const Carousel = () => {
                                 </div>
                                 <div>
                                     <img 
-                                        src={item.image} 
+                                        src={item.images[0]} 
                                         alt={item.title} 
-                                        className='max-w-[450px] rounded-full shadow-2xl shadow-green-400 transition-all hover:scale-105'
+                                        className='max-w-[450px] bg-transparent rounded-full shadow-2xl shadow-green-400 transition-all hover:scale-105'
                                     />
                                 </div>
                             </div>
                         </div>
                     </SwiperSlide>
+
                 ))}
             </Swiper>
+            <Category></Category>
             
             {/* Custom Navigation Buttons */}
-            <div className="swiper-button-prev" style={{ zIndex: 3 }}>
-                <AiOutlineArrowLeft  style={{
-                    display: 'block',
-                    borderRadius: '50px',
-                    background: '#11a11d',
-                    color: 'white',
-                    position: 'absolute',
-                    padding: '2px',
-                    left: '50px',
-                    fontSize: '24px'
-                }} />
+            <div className="swiper-button-prev absolute top-1/2 -translate-y-1/2 left-4 z-10">
+                <AiOutlineArrowLeft className="bg-green-600 text-white p-2 rounded-full text-2xl hover:bg-green-700 transition-all" />
             </div>
-            <div className="swiper-button-next" style={{ zIndex: 3 }}>
-                <AiOutlineArrowRight  style={{
-                    display: 'block',
-                    borderRadius: '50px',
-                    background: '#11a11d',
-                    color: 'white',
-                    position: 'absolute',
-                    padding: '2px',
-                    right: '50px',
-                    fontSize: '24px'
-                }} />
+            <div className="swiper-button-next absolute top-1/2 -translate-y-1/2 right-4 z-10">
+                <AiOutlineArrowRight className="bg-green-600 text-white p-2 rounded-full text-2xl hover:bg-green-700 transition-all" />
             </div>
 
             <style>
                 {`
                     .swiper-button-next,
                     .swiper-button-prev {
-                        width: 40px !important;
-                        height: 40px !important;
+                        width: auto !important;
+                        height: auto !important;
                         background: transparent !important;
                     }
                     .swiper-button-next:after,

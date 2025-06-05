@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const dataContext = createContext(null);
 
@@ -13,9 +13,8 @@ export const DataProvider = ({children}) => {
 
     const fetchAllProducts = async () =>{
         try {
-            const response = await axios.get('https://fakestoreapi.in/api/products?limit=150')
-            console.log(response);
-            const productData = response.data.products
+            const response = await axios.get('https://api.escuelajs.co/api/v1/products?offset=0&limit=150')
+            const productData = response.data
             setData(productData)
             
             
@@ -33,3 +32,4 @@ export const DataProvider = ({children}) => {
   )
 }
 
+export const useData = () => useContext(dataContext)
