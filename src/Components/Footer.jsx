@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import footerLogo from '../assets/footer-logo.png'
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="space-y-4 text-center sm:text-left">
             <Link to="/" className="flex items-center justify-center sm:justify-start">
-              <img src="/src/assets/footer-logo.png" alt="Logo" className="h-16 w-auto" />
+              <img src={footerLogo} alt="Logo" className="h-16 w-auto" />
             </Link>
             <p className="text-gray-400 text-sm max-w-xs mx-auto sm:mx-0">
               Your trusted online shopping platform. We are always at your service.
