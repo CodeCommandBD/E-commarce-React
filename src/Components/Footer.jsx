@@ -62,7 +62,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm text-center sm:text-left">
-              © 2024 Your Company Name. All rights reserved.
+              © 2025 Your Company Name. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
